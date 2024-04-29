@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import "../addUser/add.css";
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { BASE_URL } from "../../services/helper";
 
 function Edit() {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./user.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { BASE_URL } from "../../services/helper";
 
 function User() {

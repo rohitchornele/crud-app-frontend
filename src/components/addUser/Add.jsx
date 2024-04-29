@@ -3,7 +3,7 @@ import "./add.css";
 import axios from 'axios';
 
 import { Link, useNavigate } from 'react-router-dom'
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { BASE_URL } from '../../services/helper';
 
 
