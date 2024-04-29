@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import "../addUser/add.css";
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
+import { BASE_URL } from "../../services/helper";
 
 function Edit() {
     const users = {
@@ -23,7 +24,7 @@ function Edit() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/api/getone/${id}`)
+            .get(`${BASE_URL}/api/getone/${id}`)
             .then((response) => {
                 setUser(response.data);
             })
@@ -36,7 +37,7 @@ function Edit() {
         e.preventDefault();
 
         await axios
-            .put(`http://localhost:8000/api/update/${id}`, user)
+            .put(`${BASE_URL}/api/update/${id}`, user)
             .then((response) => {
                 toast.success(response.data.msg, {position: "top-right"});
                 navigate("/");

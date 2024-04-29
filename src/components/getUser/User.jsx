@@ -3,13 +3,14 @@ import "./user.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
+import { BASE_URL } from "../../services/helper";
 
 function User() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await axios.get("http://localhost:8000/api/getall");
+      const response = await axios.get(`${BASE_URL}/api/getall`);
       // console.log(response);
       setUsers(response.data);
     }
@@ -18,7 +19,7 @@ function User() {
   }, []);
 
   const deleteUser =  async (userId) => {
-    await axios.delete(`http://localhost:8000/api/delete/${userId}`).then ((response) => {
+    await axios.delete(`${BASE_URL}/api/delete/${userId}`).then ((response) => {
       setUsers((prevUser) => prevUser.filter((user) => user._id !== userId));
       toast.success(response.data.msg, {position: "top-right"});
       // console.log(response)

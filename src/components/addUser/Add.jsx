@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
+import { BASE_URL } from '../../services/helper';
 
 
 function Add() {
@@ -27,7 +28,7 @@ const navigate = useNavigate()
     const submitForm = async (e) => {
         e.preventDefault();
 
-        await axios.post("http://localhost:8000/api/create", user).then((response) => {
+        await axios.post(`${BASE_URL}/api/create`, user).then((response) => {
             toast.success(response.data.msg, {position: "top-right"});
             navigate("/");
         }).catch(error => console.log(error.message))
